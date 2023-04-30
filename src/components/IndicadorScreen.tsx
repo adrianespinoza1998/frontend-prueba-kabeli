@@ -1,12 +1,7 @@
 import { ApiIndicador } from "../types/data";
-import { changeDateFormat } from "../utils/dates";
-import { Indicador } from "./Indicador";
 import { IndicadorTable } from "./IndicadorTable";
 
 export const IndicadorScreen = ({
-  version,
-  autor,
-  fecha,
   uf,
   ivp,
   dolar,
@@ -22,11 +17,6 @@ export const IndicadorScreen = ({
 }: ApiIndicador) => {
   return (
     <div>
-      {/* <ul className="list-disc container mx-auto w-30">
-        <li>Versión: {version}</li>
-        <li>Autor: {autor}</li>
-        <li>Fecha: {changeDateFormat(fecha)}</li>
-      </ul> */}
       <IndicadorTable
         uf={uf}
         ivp={ivp}
