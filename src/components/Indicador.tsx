@@ -9,7 +9,7 @@ export const Indicador = ({
   valor,
 }: IndicadorType) => {
   return (
-    <ul className="list-disc">
+    <ul className="list-disc ml-5">
       <li>Codigo: {codigo}</li>
       <li>Nombre: {nombre}</li>
       <li>Unidad de medida: {unidad_medida}</li>

@@ -1,4 +1,5 @@
 import { IndicadorScreen } from "./components/IndicadorScreen";
+import { Navbar } from "./components/Navbar";
 import { useFetch } from "./hooks/useFetch";
 import "./index.css";
 
@@ -10,7 +11,11 @@ const App = () => {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold underline">Indicadores</h1>
+      <Navbar />
+      {/* <h1 className="text-5xl font-bold underline text-center justify-center">
+        Indicadores
+      </h1> */}
+      {/* <hr className="mt-5 mb-5" /> */}
       {isLoading && <div>Loading...</div>}
       {error && <div>{error}</div>}
       {data && (

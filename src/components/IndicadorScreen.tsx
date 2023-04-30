@@ -20,7 +20,7 @@ export const IndicadorScreen = ({
   bitcoin,
 }: ApiIndicador) => {
   return (
-    <ul className="list-disc">
+    <ul className="list-disc container mx-auto w-30">
       <li>Versión: {version}</li>
       <li>Autor: {autor}</li>
       <li>Fecha: {changeDateFormat(fecha)}</li>
