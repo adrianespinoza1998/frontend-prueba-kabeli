@@ -12,10 +12,6 @@ const App = () => {
   return (
     <div>
       <Navbar />
-      {/* <h1 className="text-5xl font-bold underline text-center justify-center">
-        Indicadores
-      </h1> */}
-      {/* <hr className="mt-5 mb-5" /> */}
       {isLoading && <div>Loading...</div>}
       {error && <div>{error}</div>}
       {data && (
@@ -37,6 +33,7 @@ const App = () => {
           bitcoin={data.bitcoin}
         />
       )}
+      {/* <IndicadorTable /> */}
     </div>
   );
 };

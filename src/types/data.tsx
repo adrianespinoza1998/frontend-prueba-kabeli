@@ -6,10 +6,7 @@ export type Indicador = {
   valor: number;
 };
 
-export type ApiIndicador = {
-  version: string;
-  autor: string;
-  fecha: string;
+export type IndicadorProps = {
   uf: Indicador;
   ivp: Indicador;
   dolar: Indicador;
@@ -22,6 +19,12 @@ export type ApiIndicador = {
   libra_cobre: Indicador;
   tasa_desempleo: Indicador;
   bitcoin: Indicador;
+};
+
+export type ApiIndicador = IndicadorProps & {
+  version: string;
+  autor: string;
+  fecha: string;
 };
 
 export type DataState = {
