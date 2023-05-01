@@ -1,39 +1,29 @@
-import { IndicadorScreen } from "./components/IndicadorScreen";
+import { Suspense, useEffect } from "react";
 import { Navbar } from "./components/Navbar";
-import { useFetch } from "./hooks/useFetch";
+import { fetchData } from "./utils/fetchData";
+import { IndicadorScreen } from "./components/IndicadorScreen";
+import { useDispatch } from "react-redux";
+import { addIndicador } from "./redux/indicadorSlice";
 import "./index.css";
 
+const apiData = fetchData(
+  `${import.meta.env.VITE_BACKEND_URL}/api/indicadores`
+);
+
 const App = () => {
-  const { data, error, isLoading } = useFetch(
-    `${import.meta.env.VITE_BACKEND_URL}/api/indicadores`,
-    "GET"
-  );
+  const data = apiData.read();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(addIndicador(data));
+  }, [data]);
 
   return (
     <div>
       <Navbar />
-      {isLoading && <div>Loading...</div>}
-      {error && <div>{error}</div>}
-      {data && (
-        <IndicadorScreen
-          version={data.version}
-          autor={data.autor}
-          fecha={data.fecha}
-          uf={data.uf}
-          ivp={data.ivp}
-          dolar={data.dolar}
-          dolar_intercambio={data.dolar_intercambio}
-          euro={data.euro}
-          ipc={data.ipc}
-          utm={data.utm}
-          imacec={data.imacec}
-          tpm={data.tpm}
-          libra_cobre={data.libra_cobre}
-          tasa_desempleo={data.tasa_desempleo}
-          bitcoin={data.bitcoin}
-        />
-      )}
-      {/* <IndicadorTable /> */}
+      <Suspense fallback={<div>Loading...</div>}>
+        <IndicadorScreen />
+      </Suspense>
     </div>
   );
 };
