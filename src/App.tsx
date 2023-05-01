@@ -16,7 +16,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(addIndicador(data));
-  }, [data]);
+  }, [data, dispatch]);
 
   return (
     <div>
